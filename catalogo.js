@@ -44,8 +44,8 @@ const opcoesPreco=p=>
 const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img src="${p.foto}" alt="${p.nome}"></div>
  <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p>${p.precoOriginalb||p.precoOriginalc?`<div class="precos-opcoes">${opcoesPreco(p)}</div>`:`${p.quantidade?`<span class="quantidade">${p.quantidade}</span>`:""}<div class="preco">${p.precoOriginal?`<del>${p.precoOriginal}</del>`:""}<b>${p.preco}</b></div>`}</div><span class="num">${n}</span></div>`;
 
-const capa=`<div class="capa"><i></i><img src="assets/logo.png" alt="7bios Beauty"><p>CATÁLOGO 2026</p></div>`;
-const boasVindas=`<div class="texto marca"><img src="assets/logo.png" alt="Logo 7Bios"><h2>7Bios</h2><p>Uma empresa comprometida<br>com sua beleza e autoestima.</p><strong>Beleza com paixão!</strong></div>`;
+const capa=`<div class="capa"><i></i><div class="capa-oferta"><span>BLACK</span><strong>FRIDAY</strong></div><img src="assets/logo.png" alt="7bios Beauty"><p>CATÁLOGO ESPECIAL • 2026</p></div>`;
+const boasVindas=`<div class="texto marca"><img src="assets/logo.png" alt="Logo 7Bios"><p>Uma empresa comprometida<br>com sua beleza e autoestima.</p><strong>Beleza com paixão!</strong></div>`;
 const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp<br>e receba em casa.</p><a href="${WHATSAPP}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>`;
 const contracapa=`<div class="texto"><img src="assets/logo.png" alt="7bios Beauty"><p>Obrigada pela visita.</p></div>`;
 
@@ -54,6 +54,16 @@ for(let i=0;i<produtos.length;i+=2)
   folhas.push([prod(produtos[i],i+3),produtos[i+1]?prod(produtos[i+1],i+4):""]);
 folhas.push([contato,contracapa]);
 folhas[0][0]=capa;
+
+const indiceList=document.getElementById('indice-list');
+produtos.forEach((produto,i)=>{
+  const item=document.createElement('button');
+  item.type='button';
+  item.className='indice-item';
+  item.textContent=produto.nome;
+  item.addEventListener('click',()=>irParaProduto(i));
+  indiceList.appendChild(item);
+});
 
 const book=document.getElementById('book'),N=folhas.length;
 const leaves=folhas.map(([f,b],i)=>{
@@ -69,6 +79,43 @@ const leaves=folhas.map(([f,b],i)=>{
 let atual=0,lado=0,ocupado=false,mudo=false,ac; // lado: 0 = vendo a frente (direita) | 1 = vendo o verso (esquerda)
 const mq=matchMedia('(orientation:portrait)');
 const mobile=()=>mq.matches; // celular/tablet em pé: mostra 1 página grande por vez
+const indice=document.getElementById('indice');
+const indiceOpen=document.getElementById('indice-open');
+const indiceClose=document.getElementById('indice-close');
+const indiceBackdrop=document.getElementById('indice-backdrop');
+const indiceEstaAberto=()=>document.body.classList.contains('indice-aberto');
+
+function fecharIndice(){
+  document.body.classList.remove('indice-aberto');
+  indice.setAttribute('aria-hidden','true');
+  indiceOpen.setAttribute('aria-expanded','false');
+  indiceOpen.focus();
+}
+
+function abrirIndice(){
+  if(!mobile())return;
+  document.body.classList.add('indice-aberto');
+  indice.setAttribute('aria-hidden','false');
+  indiceOpen.setAttribute('aria-expanded','true');
+  indiceClose.focus();
+}
+
+function irParaProduto(i){
+  fecharIndice();
+  const folha=1+Math.floor(i/2);
+  const verso=i%2===1;
+  const stage=document.getElementById('stage');
+  stage.classList.add('saltando');
+  void book.offsetWidth;
+  atual=folha+(verso?1:0);
+  lado=verso?1:0;
+  render();
+  requestAnimationFrame(()=>stage.classList.remove('saltando'));
+}
+
+indiceOpen.addEventListener('click',abrirIndice);
+indiceClose.addEventListener('click',fecharIndice);
+indiceBackdrop.addEventListener('click',fecharIndice);
 
 function som(){
   if(mudo)return;
@@ -108,12 +155,20 @@ function voltar(){
     else if(atual>0){lado=1;render();}
   }else if(atual>0)virar(atual-1,-1);
 }
-mq.addEventListener('change',render);
+mq.addEventListener('change',()=>{
+  if(!mobile()&&indiceEstaAberto())fecharIndice();
+  render();
+});
 document.getElementById('next').onclick=avancar;
 document.getElementById('prev').onclick=voltar;
 document.getElementById('mute').onclick=e=>{mudo=!mudo;e.target.textContent=mudo?'🔇':'🔊';};
-addEventListener('keydown',e=>{if(e.key==='ArrowRight')avancar();if(e.key==='ArrowLeft')voltar();});
+addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&indiceEstaAberto()){fecharIndice();return;}
+  if(indiceEstaAberto())return;
+  if(e.key==='ArrowRight')avancar();
+  if(e.key==='ArrowLeft')voltar();
+});
 let x0=null;
-addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+addEventListener('touchstart',e=>x0=indiceEstaAberto()?null:e.touches[0].clientX,{passive:true});
 addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>50)d<0?avancar():voltar();x0=null;});
 render();

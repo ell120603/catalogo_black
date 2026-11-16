@@ -8,6 +8,15 @@
 </head>
 <body>
 <div id="stage"><div id="book"></div></div>
+<button id="indice-open" class="indice-open" type="button" aria-label="Abrir índice de produtos" aria-expanded="false" aria-controls="indice">☰</button>
+<div id="indice-backdrop" class="indice-backdrop" aria-hidden="true"></div>
+<aside id="indice" class="indice" role="dialog" aria-modal="true" aria-labelledby="indice-title" aria-hidden="true">
+  <div class="indice-header">
+    <h2 id="indice-title">Índice de produtos</h2>
+    <button id="indice-close" class="indice-close" type="button" aria-label="Fechar índice">×</button>
+  </div>
+  <nav id="indice-list" class="indice-list" aria-label="Produtos"></nav>
+</aside>
 <nav id="ui">
   <button id="prev" aria-label="Página anterior">‹</button>
   <span id="pos">Capa</span>
