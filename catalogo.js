@@ -2,19 +2,25 @@
    Para usar suas fotos: coloque o arquivo em assets/produtos/ e troque o nome em "foto". */
 const WHATSAPP = "https://wa.me/5511985896167"; // troque pelo seu número
 const produtos = [
- {nome:"Reconstrutor Acid",     desc:"kit",          precoOriginal:"R$ 170,00", preco:"R$ 140,00", foto:"assets/produtos/prod1black.jpeg"},
- {nome:"Escova Orgânica Matizada",     desc:"Progrssiva.",             precoOriginal:"R$ 170,00", preco:"R$ 140,00",  foto:"assets/produtos/prod2black.jpeg"},
- {nome:"Kit Pro Cachos",      desc:"Kit cachos.",     precoOriginal:"R$ 170,00", preco:"R$ 140,00",  foto:"assets/produtos/prod3black.jpeg"},
- {nome:"Batom Matte",          desc:"Cor intensa e conforto o dia todo.",                  preco:"R$ 49,90",  foto:"assets/produtos/prod3black.jpeg"},
- {nome:"Perfume Ouro",         desc:"Fragrância amadeirada com toque floral. 50 ml.",      preco:"R$ 249,90", foto:"assets/produtos/produto5.svg"},
+ {nome:"Reconstrutor Acid",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",          precoOriginal:"R$ 170,00", preco:"R$ 140,00", foto:"assets/produtos/prod1black.jpeg"},
+ {nome:"Escova Orgânica Matizada",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 260,00",  foto:"assets/produtos/prod2black.jpeg"},
+ {nome:"Kit Pro Cachos",      desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",     precoOriginal:"R$ 195,00", preco:"R$ 139,00",  foto:"assets/produtos/prod3black.jpeg"},
+ {nome:"Kit S.O.S Cauterização",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 310,00", preco:"R$ 229,00",  foto:"assets/produtos/prod4black.jpeg"},
+ {nome:"Matizadora Silver",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", quantidade:"1KG", precoOriginal:"R$ 100,00", preco:"R$ 60,00", quantidadeb:"500g", precoOriginalb:"R$ 60,00", precob:"R$ 40,00", quantidadec:"3 unidades 300g", precoOriginalc:"R$ 120,00", precoc:"R$ 70,00", foto:"assets/produtos/prod5black.jpeg"},
  {nome:"Kit Skincare",         desc:"Limpeza, tônico e hidratante em um só kit.",          preco:"R$ 199,90", foto:"assets/produtos/produto6.svg"},
  {nome:"Óleo Corporal",        desc:"Pele sedosa com brilho dourado. 100 ml.",             preco:"R$ 79,90",  foto:"assets/produtos/produto7.svg"},
  {nome:"Paleta de Sombras",    desc:"8 tons quentes, do nude ao bronze.",                  preco:"R$ 109,90", foto:"assets/produtos/produto8.svg"},
 ];
 /* ===================================== */
 
+const opcoesPreco=p=>
+  [ [p.quantidade,p.precoOriginal,p.preco], [p.quantidadeb,p.precoOriginalb,p.precob], [p.quantidadec,p.precoOriginalc,p.precoc] ]
+    .filter(([,original,preco])=>original||preco)
+    .map(([quantidade,original,preco])=>`<div class="opcao-preco"><span>${quantidade||""}</span><div>${original?`<del>${original}</del>`:""}<b>${preco||""}</b></div></div>`)
+    .join("");
+
 const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img src="${p.foto}" alt="${p.nome}"></div>
- <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p><div class="preco">${p.precoOriginal?`<del>${p.precoOriginal}</del>`:""}<b>${p.preco}</b></div></div><span class="num">${n}</span></div>`;
+ <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p>${p.precoOriginalb||p.precoOriginalc?`<div class="precos-opcoes">${opcoesPreco(p)}</div>`:`${p.quantidade?`<span class="quantidade">${p.quantidade}</span>`:""}<div class="preco">${p.precoOriginal?`<del>${p.precoOriginal}</del>`:""}<b>${p.preco}</b></div>`}</div><span class="num">${n}</span></div>`;
 
 const capa=`<div class="capa"><i></i><img src="assets/logo.png" alt="7bios Beauty"><p>CATÁLOGO 2026</p></div>`;
 const boasVindas=`<div class="texto"><h2>Bem-vinda</h2><p>Conheça a linha 7bios Beauty.<br>Folheie as páginas e escolha seus favoritos.</p></div>`;

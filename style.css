@@ -34,10 +34,17 @@ html,body{height:100%;background:radial-gradient(ellipse at 50% 30%,#1c1710,#050
 .leaf:hover .foto img{transform:scale(1.05)}
 .info{padding:5% 8% 7%;background:#f6efdf}
 .info h3{font-size:calc(var(--h)*.042);font-weight:400;font-style:italic;color:#1a1409}
-.info p{font-size:calc(var(--h)*.024);line-height:1.5;margin:.5em 0;color:#5b4c33}
+.info p{font-size:calc(var(--h)*.03);line-height:1.5;margin:.5em 0;color:#5b4c33}
+.info .quantidade{display:block;font-size:calc(var(--h)*.030);color:#5b4c33;margin:.35em 0}
 .info .preco{display:flex;align-items:baseline;gap:.55em}
-.info .preco del{font-size:calc(var(--h)*.026);color:#8a7a55}
-.info b{font-size:calc(var(--h)*.036);color:#9a7a1c;font-weight:400}
+.info .precos-opcoes{display:grid;gap:.2em;margin-top:.35em}
+.info .opcao-preco{display:flex;justify-content:space-between;align-items:baseline;gap:.55em}
+.info .opcao-preco div{display:flex;align-items:baseline;gap:.4em}
+.info .opcao-preco span{font-size:calc(var(--h)*.024);color:#5b4c33}
+.info .opcao-preco del{font-size:calc(var(--h)*.022);color:#8a7a55}
+.info .opcao-preco b{font-size:calc(var(--h)*.036);color:#b3261e;font-weight:500}
+.info .preco del{font-size:calc(var(--h)*.036);color:#8a7a55}
+.info b{font-size:calc(var(--h)*.05);color:#b3261e;font-weight:500}
 .num{position:absolute;bottom:2.2%;font-size:calc(var(--h)*.02);color:#8a7a55;z-index:2}
 .front .num{right:6%}.back .num{left:6%}
 .texto{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12%;
@@ -61,7 +68,9 @@ html,body{height:100%;background:radial-gradient(ellipse at 50% 30%,#1c1710,#050
   #stage{overflow:hidden;padding-bottom:60px}
   #book.vR{transform:translateX(-25%) rotateX(6deg)}
   #book.vL{transform:translateX(25%) rotateX(6deg)}
-  .info h3{font-size:calc(var(--h)*.046)}.info p{font-size:calc(var(--h)*.03)}.info b{font-size:calc(var(--h)*.042)}
+  .info h3{font-size:calc(var(--h)*.046)}.info p{font-size:calc(var(--h)*.03)}.info b{font-size:calc(var(--h)*.046)}
+  .info .quantidade{font-size:calc(var(--h)*.026)}
+  .info .opcao-preco span{font-size:calc(var(--h)*.03)}.info .opcao-preco del{font-size:calc(var(--h)*.026)}.info .opcao-preco b{font-size:calc(var(--h)*.04)}
   .info .preco del{font-size:calc(var(--h)*.03)}
   .texto p,.texto a{font-size:calc(var(--h)*.032)}
   #ui button{font-size:28px;padding:2px 14px}
