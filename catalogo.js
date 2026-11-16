@@ -162,6 +162,35 @@ mq.addEventListener('change',()=>{
 document.getElementById('next').onclick=avancar;
 document.getElementById('prev').onclick=voltar;
 document.getElementById('mute').onclick=e=>{mudo=!mudo;e.target.textContent=mudo?'🔇':'🔊';};
+const fullscreenButton=document.getElementById('fullscreen');
+const fullscreenStatus=document.getElementById('fullscreen-status');
+let fullscreenStatusTimer;
+function avisarTelaCheia(mensagem){
+  fullscreenStatus.textContent=mensagem;
+  fullscreenStatus.classList.add('visivel');
+  clearTimeout(fullscreenStatusTimer);
+  fullscreenStatusTimer=setTimeout(()=>fullscreenStatus.classList.remove('visivel'),4000);
+}
+function atualizarBotaoTelaCheia(){
+  const ativa=Boolean(document.fullscreenElement);
+  fullscreenButton.setAttribute('aria-label',ativa?'Sair da tela cheia':'Ativar tela cheia');
+  fullscreenButton.title=ativa?'Sair da tela cheia':'Ativar tela cheia';
+}
+fullscreenButton.addEventListener('click',async()=>{
+  if(!document.fullscreenEnabled||typeof document.documentElement.requestFullscreen!=='function'){
+    avisarTelaCheia('Tela cheia não está disponível neste navegador.');
+    return;
+  }
+  try{
+    if(document.fullscreenElement)await document.exitFullscreen();
+    else await document.documentElement.requestFullscreen();
+    atualizarBotaoTelaCheia();
+  }catch(error){
+    console.error('Não foi possível alternar para a tela cheia.',error);
+    avisarTelaCheia('Não foi possível ativar a tela cheia. Verifique as permissões do navegador.');
+  }
+});
+document.addEventListener('fullscreenchange',atualizarBotaoTelaCheia);
 addEventListener('keydown',e=>{
   if(e.key==='Escape'&&indiceEstaAberto()){fecharIndice();return;}
   if(indiceEstaAberto())return;
