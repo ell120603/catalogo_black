@@ -7,9 +7,32 @@ const produtos = [
  {nome:"Kit Pro Cachos",      desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",     precoOriginal:"R$ 195,00", preco:"R$ 139,00",  foto:"assets/produtos/prod3black.jpeg"},
  {nome:"Kit S.O.S Cauterização",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 310,00", preco:"R$ 229,00",  foto:"assets/produtos/prod4black.jpeg"},
  {nome:"Matizadora Silver",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", quantidade:"1KG", precoOriginal:"R$ 100,00", preco:"R$ 60,00", quantidadeb:"500g", precoOriginalb:"R$ 60,00", precob:"R$ 40,00", quantidadec:"3 unidades 300g", precoOriginalc:"R$ 120,00", precoc:"R$ 70,00", foto:"assets/produtos/prod5black.jpeg"},
- {nome:"Kit Skincare",         desc:"Limpeza, tônico e hidratante em um só kit.",          preco:"R$ 199,90", foto:"assets/produtos/produto6.svg"},
- {nome:"Óleo Corporal",        desc:"Pele sedosa com brilho dourado. 100 ml.",             preco:"R$ 79,90",  foto:"assets/produtos/produto7.svg"},
- {nome:"Paleta de Sombras",    desc:"8 tons quentes, do nude ao bronze.",                  preco:"R$ 109,90", foto:"assets/produtos/produto8.svg"},
+ {nome:"Oxidante",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"6 Unidades ", precoOriginal:"R$ 270,00", preco:"R$ 180,00", quantidadeb:"12 unidades",precoOriginalb:"R$ 540,00", precob:"R$ 300,00",foto:"assets/produtos/prod6black.jpeg"},
+ {nome:"Tonalizante",        desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",             quantidade:"6 Unidades ", precoOriginal:"R$ 210,00", preco:"R$ 120,00", quantidadeb:"12 unidades",precoOriginalb:"R$ 420,00", precob:"R$ 180,00",  foto:"assets/produtos/prod7black.jpeg"},
+ {nome:"Escova Liss perfect Hair",    desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 300,00", foto:"assets/produtos/prod8black.jpeg"},
+ {nome:"Leave-In 300ml",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", quantidade:"6 Unidades ", precoOriginal:"R$ 210,00", preco:"R$ 150,00", quantidadeb:"12 unidades",precoOriginalb:"R$ 420,00", precob:"R$ 264,00", foto:"assets/produtos/prod9black.jpeg"},
+ {nome:"Keratin Gel 500ml",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",precoOriginal:"R$ 95,00", preco:"R$60,00",  foto:"assets/produtos/prod10black.jpeg"},
+ {nome:"Kit Matizador 1L",      desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",     precoOriginal:"R$ 160,00", preco:"R$ 119,00",  foto:"assets/produtos/prod11black.jpeg"},
+ {nome:"Kit Escova orgânica Branca",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 320,00", preco:"R$ 230,00",  foto:"assets/produtos/prod12black.jpeg"},
+ {nome:"Plástica dos Fios",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",precoOriginal:"R$ 140,00", preco:"R$ 90,00", foto:"assets/produtos/prod13black.jpeg"},
+ {nome:"Shampoo detox",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",  quantidade:"1L", precoOriginal:"R$ 75,00", preco:"R$ 55,00", quantidadeb:"2,5L", precoOriginalb:"R$ 150,00", precob:"R$ 115,00", quantidadec:"5L", precoOriginalc:"R$ 240,00", precoc:"R$ 190,00" ,foto:"assets/produtos/prod14black.jpeg"},
+ {nome:"Leave-in 1L",        desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",precoOriginal:"R$ 100,00", preco:"R$ 60,00", foto:"assets/produtos/prod15black.jpeg"},
+ /* ===================================== */ 
+ {nome:"Botox Orgânico Blond",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", quantidade:"2 unidades", precoOriginal:"R$ 140,00", preco:"R$ 95,00", foto:"assets/produtos/prod16black.jpeg"},
+ {nome:"Ampola smart Chantilly",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"18 unidades", precoOriginal:"R$ 150,00", preco:"R$ 100,00",  foto:"assets/produtos/prod17black.jpeg"},
+ {nome:"Keratin Liquida 500ml",      desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",     precoOriginal:"R$ 95,00", preco:"R$ 60,00",  foto:"assets/produtos/prod18black.jpeg"},
+ {nome:"Kit S.O.S Cauterização",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 310,00", preco:"R$ 229,00",  foto:"assets/produtos/prod4black.jpeg"},
+ {nome:"Matizadora Silver",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", quantidade:"1KG", precoOriginal:"R$ 100,00", preco:"R$ 60,00", quantidadeb:"500g", precoOriginalb:"R$ 60,00", precob:"R$ 40,00", quantidadec:"3 unidades 300g", precoOriginalc:"R$ 120,00", precoc:"R$ 70,00", foto:"assets/produtos/prod5black.jpeg"},
+ {nome:"Oxidante",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"6 Unidades ", precoOriginal:"R$ 270,00", preco:"R$ 180,00", quantidadeb:"12 unidades",precoOriginalb:"R$ 540,00", precob:"R$ 300,00",foto:"assets/produtos/prod6black.jpeg"},
+ {nome:"Tonalizante",        desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",             quantidade:"6 Unidades ", precoOriginal:"R$ 210,00", preco:"R$ 120,00", quantidadeb:"12 unidades",precoOriginalb:"R$ 420,00", precob:"R$ 180,00",  foto:"assets/produtos/prod7black.jpeg"},
+ {nome:"Escova Liss perfect Hair",    desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 300,00", foto:"assets/produtos/prod8black.jpeg"},
+ {nome:"Leave-In 300ml",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", quantidade:"6 Unidades ", precoOriginal:"R$ 210,00", preco:"R$ 150,00", quantidadeb:"12 unidades",precoOriginalb:"R$ 420,00", precob:"R$ 264,00", foto:"assets/produtos/prod9black.jpeg"},
+ {nome:"Keratin Gel 500ml",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",precoOriginal:"R$ 95,00", preco:"R$60,00",  foto:"assets/produtos/prod10black.jpeg"},
+ {nome:"Kit Matizador 1L",      desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",     precoOriginal:"R$ 160,00", preco:"R$ 119,00",  foto:"assets/produtos/prod11black.jpeg"},
+ {nome:"Kit Escova orgânica Branca",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 320,00", preco:"R$ 230,00",  foto:"assets/produtos/prod12black.jpeg"},
+ {nome:"Plástica dos Fios",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",precoOriginal:"R$ 140,00", preco:"R$ 90,00", foto:"assets/produtos/prod13black.jpeg"},
+ {nome:"Shampoo detox",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",  quantidade:"1L", precoOriginal:"R$ 75,00", preco:"R$ 55,00", quantidadeb:"2,5L", precoOriginalb:"R$ 150,00", precob:"R$ 115,00", quantidadec:"5L", precoOriginalc:"R$ 240,00", precoc:"R$ 190,00" ,foto:"assets/produtos/prod14black.jpeg"},
+ {nome:"Leave-in 1L",        desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",precoOriginal:"R$ 100,00", preco:"R$ 60,00", foto:"assets/produtos/prod15black.jpeg"},
 ];
 /* ===================================== */
 
@@ -23,7 +46,7 @@ const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img src="${p.foto}" a
  <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p>${p.precoOriginalb||p.precoOriginalc?`<div class="precos-opcoes">${opcoesPreco(p)}</div>`:`${p.quantidade?`<span class="quantidade">${p.quantidade}</span>`:""}<div class="preco">${p.precoOriginal?`<del>${p.precoOriginal}</del>`:""}<b>${p.preco}</b></div>`}</div><span class="num">${n}</span></div>`;
 
 const capa=`<div class="capa"><i></i><img src="assets/logo.png" alt="7bios Beauty"><p>CATÁLOGO 2026</p></div>`;
-const boasVindas=`<div class="texto"><h2>Bem-vinda</h2><p>Conheça a linha 7bios Beauty.<br>Folheie as páginas e escolha seus favoritos.</p></div>`;
+const boasVindas=`<div class="texto marca"><img src="assets/logo.png" alt="Logo 7Bios"><h2>7Bios</h2><p>Uma empresa comprometida<br>com sua beleza e autoestima.</p><strong>Beleza com paixão!</strong></div>`;
 const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp<br>e receba em casa.</p><a href="${WHATSAPP}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>`;
 const contracapa=`<div class="texto"><img src="assets/logo.png" alt="7bios Beauty"><p>Obrigada pela visita.</p></div>`;
 
@@ -73,6 +96,7 @@ function virar(i,dir){
 }
 function avancar(){
   if(ocupado)return;
+  if(atual===N){atual=0;lado=0;som();render();return;}
   if(mobile()){
     if(lado===0){if(atual<N){lado=1;virar(atual,1);}}   // vira a folha e mostra o verso
     else if(atual<N){lado=0;render();}                  // desliza para a frente da próxima folha
