@@ -41,12 +41,12 @@ const opcoesPreco=p=>
     .map(([quantidade,original,preco])=>`<div class="opcao-preco"><span>${quantidade||""}</span><div>${original?`<del>${original}</del>`:""}<b>${preco||""}</b></div></div>`)
     .join("");
 
-const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img src="${p.foto}" alt="${p.nome}"></div>
+const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img data-src="${p.foto}" loading="lazy" decoding="async" alt="${p.nome}"></div>
  <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p>${p.precoOriginalb||p.precoOriginalc?`<div class="precos-opcoes">${opcoesPreco(p)}</div>`:`${p.quantidade?`<span class="quantidade">${p.quantidade}</span>`:""}<div class="preco">${p.precoOriginal?`<del>${p.precoOriginal}</del>`:""}<b>${p.preco}</b></div>`}</div><span class="num">${n}</span></div>`;
 
-const capa=`<div class="capa"><i></i><div class="capa-oferta"><span>BLACK</span><strong>FRIDAY</strong></div><img src="assets/logo.png" alt="7bios Beauty"><p>CATÁLOGO ESPECIAL • 2026</p></div>`;
+const capa=`<div class="capa"><i></i><div class="capa-oferta"><span>BLACK</span><strong>FRIDAY</strong></div><img src="assets/logo.png" fetchpriority="high" decoding="async" alt="7bios Beauty"><p>CATÁLOGO ESPECIAL • 2026</p></div>`;
 const boasVindas=`<div class="texto marca"><img src="assets/logo.png" alt="Logo 7Bios"><p>Uma empresa comprometida<br>com sua beleza e autoestima.</p><strong>Beleza com paixão!</strong></div>`;
-const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp<br>e receba em casa.</p><a href="${WHATSAPP}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>`;
+const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp ou Instagram<br>e receba no local indicado por você<br>não cobramos taxa de entrega</p><a href="${WHATSAPP}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>`;
 const contracapa=`<div class="texto"><img src="assets/logo.png" alt="7bios Beauty"><p>Obrigada pela visita.</p></div>`;
 
 const folhas=[[capa,boasVindas]];
@@ -77,6 +77,7 @@ const leaves=folhas.map(([f,b],i)=>{
   book.appendChild(el);return el;
 });
 let atual=0,lado=0,ocupado=false,mudo=false,ac; // lado: 0 = vendo a frente (direita) | 1 = vendo o verso (esquerda)
+const imagensEmPreload=new Set();
 const mq=matchMedia('(orientation:portrait)');
 const mobile=()=>mq.matches; // celular/tablet em pé: mostra 1 página grande por vez
 const indice=document.getElementById('indice');
@@ -131,8 +132,49 @@ function render(){
   leaves.forEach((l,i)=>{l.classList.toggle('flipped',i<atual);if(!l.classList.contains('flipping'))l.style.zIndex=i<atual?i:N-i;});
   if(atual===0)lado=0;if(atual===N)lado=1;
   book.className=(atual===0?'':atual===N?'fim':'aberto')+(lado?' vL':' vR');
+  carregarImagensVisiveis();
+  precargarProximasImagens();
   const p=document.getElementById('pos');
   p.textContent=atual===0&&lado===0?'Capa':atual===N?'Contracapa':mobile()?`Página ${lado?2*atual:2*atual+1}`:`Páginas ${atual*2}–${atual*2+1}`;
+}
+function carregarImagemDaFace(indice,face){
+  if(indice<0||indice>=leaves.length)return;
+  leaves[indice].querySelectorAll(`.face.${face} img[data-src]`).forEach(img=>{
+    img.loading='eager';
+    img.src=img.dataset.src;
+    img.removeAttribute('data-src');
+  });
+}
+function carregarImagensVisiveis(){
+  if(mobile()){
+    carregarImagemDaFace(lado?atual-1:atual,lado?'back':'front');
+    return;
+  }
+  carregarImagemDaFace(atual-1,'back');
+  carregarImagemDaFace(atual,'front');
+}
+function precargarImagemDaFace(indice,face){
+  if(indice<0||indice>=leaves.length)return;
+  leaves[indice].querySelectorAll(`.face.${face} img[data-src]`).forEach(img=>{
+    const src=img.dataset.src;
+    if(imagensEmPreload.has(src))return;
+    imagensEmPreload.add(src);
+    const imagem=new Image();
+    imagem.decoding='async';
+    imagem.fetchPriority='low';
+    imagem.src=src;
+  });
+}
+function precargarProximasImagens(){
+  if(mobile()){
+    if(lado===0)precargarImagemDaFace(atual,'back');
+    else if(atual<N)precargarImagemDaFace(atual,'front');
+    return;
+  }
+  if(atual<N){
+    precargarImagemDaFace(atual,'back');
+    precargarImagemDaFace(atual+1,'front');
+  }
 }
 function virar(i,dir){
   if(ocupado)return;ocupado=true;som();
