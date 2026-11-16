@@ -46,12 +46,26 @@ const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img data-src="${p.fot
 
 const capa=`<div class="capa"><i></i><div class="capa-oferta"><span>BLACK</span><strong>FRIDAY</strong></div><img src="assets/logo.png" fetchpriority="high" decoding="async" alt="7bios Beauty"><p>CATÁLOGO ESPECIAL • 2026</p></div>`;
 const boasVindas=`<div class="texto marca"><img src="assets/logo.png" alt="Logo 7Bios"><p>Uma empresa comprometida<br>com sua beleza e autoestima.</p><strong>Beleza com paixão!</strong></div>`;
+const redesSociais=`<div class="texto redes"><h2>Nos siga nas redes sociais</h2><div class="redes-lista">
+ <a class="rede" href="https://www.instagram.com/7biosebeauty/" target="_blank" rel="noopener">
+  <span class="rede-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle class="icone-ponto" cx="18" cy="6" r="1"></circle></svg></span>
+  <span class="rede-nome"><small>Instagram</small><strong>@7biosebeauty</strong></span><span class="rede-seta" aria-hidden="true">↗</span>
+ </a>
+ <a class="rede" href="https://www.tiktok.com/@7biosebeauty" target="_blank" rel="noopener">
+  <span class="rede-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3v11.2a4.2 4.2 0 1 1-3.2-4.08"></path><path d="M14 3c.4 3 2.3 4.8 5 5"></path></svg></span>
+  <span class="rede-nome"><small>TikTok</small><strong>7biosebeauty</strong></span><span class="rede-seta" aria-hidden="true">↗</span>
+ </a>
+ <a class="rede" href="https://www.youtube.com/results?search_query=7+Bios+Beauty" target="_blank" rel="noopener">
+  <span class="rede-icone" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"></rect><path class="icone-play" d="m10 9 5 3-5 3z"></path></svg></span>
+  <span class="rede-nome"><small>YouTube</small><strong>7 Bios</strong></span><span class="rede-seta" aria-hidden="true">↗</span>
+ </a>
+ </div></div>`;
 const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp ou Instagram<br>e receba no local indicado por você<br>não cobramos taxa de entrega</p><a href="${WHATSAPP}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>`;
 const contracapa=`<div class="texto"><img src="assets/logo.png" alt="7bios Beauty"><p>Obrigada pela visita.</p></div>`;
 
 const folhas=[[capa,boasVindas]];
 for(let i=0;i<produtos.length;i+=2)
-  folhas.push([prod(produtos[i],i+3),produtos[i+1]?prod(produtos[i+1],i+4):""]);
+  folhas.push([prod(produtos[i],i+3),produtos[i+1]?prod(produtos[i+1],i+4):redesSociais]);
 folhas.push([contato,contracapa]);
 folhas[0][0]=capa;
 

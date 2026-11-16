@@ -64,6 +64,19 @@ html,body{height:100%;background:radial-gradient(ellipse at 50% 30%,#1c1710,#050
 .marca h2{font-size:calc(var(--h)*.075);font-style:normal;font-weight:600;letter-spacing:.08em;margin:0}
 .marca p{font-size:calc(var(--h)*.04);line-height:1.55}
 .marca strong{margin-top:.35em;color:var(--ouro);font-size:calc(var(--h)*.05);font-style:italic;font-weight:400}
+.redes{gap:.4em;padding:7%}
+.redes h2{margin:0 0 .1em}
+.redes-lista{display:grid;gap:.5em;width:100%;max-width:340px}
+.rede{display:flex;align-items:center;gap:.75em;width:100%;padding:.55em .7em;border:1px solid rgba(212,175,55,.42);
+  border-radius:8px;background:rgba(212,175,55,.06);color:var(--ouro2);text-align:left;text-decoration:none;transition:background .2s,transform .2s}
+.rede:hover{background:rgba(212,175,55,.16);transform:translateY(-2px)}
+.rede-icone{display:grid;place-items:center;flex:none;width:calc(var(--h)*.055);height:calc(var(--h)*.055);color:var(--ouro)}
+.rede-icone svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rede-icone .icone-ponto,.rede-icone .icone-play{fill:currentColor;stroke:none}
+.rede-nome{display:grid;gap:.1em;flex:1}
+.rede-nome small{font-size:calc(var(--h)*.02);color:var(--ouro)}
+.rede-nome strong{font-size:calc(var(--h)*.034);font-weight:600}
+.rede-seta{color:var(--ouro);font-size:calc(var(--h)*.035)}
 .indice-open,.indice-backdrop,.indice{display:none}
 /* navegação */
 #ui{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:14px;align-items:center;
