@@ -30,11 +30,13 @@ html,body{height:100%;background:radial-gradient(ellipse at 50% 30%,#1c1710,#050
 /* páginas */
 .pg{height:100%;display:flex;flex-direction:column}
 .pg .foto{flex:1;min-height:0;overflow:hidden;background:#111}
-.pg .foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s}
+.pg .foto img{width:100%;height:100%;object-fit:contain;display:block;transition:transform 6s}
 .leaf:hover .foto img{transform:scale(1.05)}
 .info{padding:5% 8% 7%;background:#f6efdf}
 .info h3{font-size:calc(var(--h)*.042);font-weight:400;font-style:italic;color:#1a1409}
 .info p{font-size:calc(var(--h)*.024);line-height:1.5;margin:.5em 0;color:#5b4c33}
+.info .preco{display:flex;align-items:baseline;gap:.55em}
+.info .preco del{font-size:calc(var(--h)*.026);color:#8a7a55}
 .info b{font-size:calc(var(--h)*.036);color:#9a7a1c;font-weight:400}
 .num{position:absolute;bottom:2.2%;font-size:calc(var(--h)*.02);color:#8a7a55;z-index:2}
 .front .num{right:6%}.back .num{left:6%}
@@ -60,6 +62,7 @@ html,body{height:100%;background:radial-gradient(ellipse at 50% 30%,#1c1710,#050
   #book.vR{transform:translateX(-25%) rotateX(6deg)}
   #book.vL{transform:translateX(25%) rotateX(6deg)}
   .info h3{font-size:calc(var(--h)*.046)}.info p{font-size:calc(var(--h)*.03)}.info b{font-size:calc(var(--h)*.042)}
+  .info .preco del{font-size:calc(var(--h)*.03)}
   .texto p,.texto a{font-size:calc(var(--h)*.032)}
   #ui button{font-size:28px;padding:2px 14px}
 }

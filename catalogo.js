@@ -2,10 +2,10 @@
    Para usar suas fotos: coloque o arquivo em assets/produtos/ e troque o nome em "foto". */
 const WHATSAPP = "https://wa.me/5511985896167"; // troque pelo seu número
 const produtos = [
- {nome:"Pó descolorante White",     desc:"Ilumina e uniformiza o tom da pele. 30 ml.",          preco:"R$ 65,00", foto:"assets/produtos/produto1b.jpeg"},
- {nome:"Creme Hidratante",     desc:"Hidratação profunda por 24 horas. 50 g.",             preco:"R$ 89,90",  foto:"assets/produtos/produto2.svg"},
- {nome:"Máscara Capilar",      desc:"Nutrição intensa para fios macios e brilhantes.",     preco:"R$ 74,90",  foto:"assets/produtos/produto3.svg"},
- {nome:"Batom Matte",          desc:"Cor intensa e conforto o dia todo.",                  preco:"R$ 49,90",  foto:"assets/produtos/produto4.svg"},
+ {nome:"Reconstrutor Acid",     desc:"kit",          precoOriginal:"R$ 170,00", preco:"R$ 140,00", foto:"assets/produtos/prod1black.jpeg"},
+ {nome:"Escova Orgânica Matizada",     desc:"Progrssiva.",             precoOriginal:"R$ 170,00", preco:"R$ 140,00",  foto:"assets/produtos/prod2black.jpeg"},
+ {nome:"Kit Pro Cachos",      desc:"Kit cachos.",     precoOriginal:"R$ 170,00", preco:"R$ 140,00",  foto:"assets/produtos/prod3black.jpeg"},
+ {nome:"Batom Matte",          desc:"Cor intensa e conforto o dia todo.",                  preco:"R$ 49,90",  foto:"assets/produtos/prod3black.jpeg"},
  {nome:"Perfume Ouro",         desc:"Fragrância amadeirada com toque floral. 50 ml.",      preco:"R$ 249,90", foto:"assets/produtos/produto5.svg"},
  {nome:"Kit Skincare",         desc:"Limpeza, tônico e hidratante em um só kit.",          preco:"R$ 199,90", foto:"assets/produtos/produto6.svg"},
  {nome:"Óleo Corporal",        desc:"Pele sedosa com brilho dourado. 100 ml.",             preco:"R$ 79,90",  foto:"assets/produtos/produto7.svg"},
@@ -14,7 +14,7 @@ const produtos = [
 /* ===================================== */
 
 const prod=(p,n,lado)=>`<div class="pg"><div class="foto"><img src="${p.foto}" alt="${p.nome}"></div>
- <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p><b>${p.preco}</b></div><span class="num">${n}</span></div>`;
+ <div class="info"><h3>${p.nome}</h3><p>${p.desc}</p><div class="preco">${p.precoOriginal?`<del>${p.precoOriginal}</del>`:""}<b>${p.preco}</b></div></div><span class="num">${n}</span></div>`;
 
 const capa=`<div class="capa"><i></i><img src="assets/logo.png" alt="7bios Beauty"><p>CATÁLOGO 2026</p></div>`;
 const boasVindas=`<div class="texto"><h2>Bem-vinda</h2><p>Conheça a linha 7bios Beauty.<br>Folheie as páginas e escolha seus favoritos.</p></div>`;
