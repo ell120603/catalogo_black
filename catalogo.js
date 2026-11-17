@@ -3,11 +3,11 @@
 const WHATSAPP = "https://wa.me/5511985896167"; // troque pelo seu número
 const produtos = [
  {nome:"Kit Escova orgânica Branca",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 320,00", preco:"R$ 230,00",  foto:"assets/produtos/prod12black.jpeg"},
- {nome:"Escova orgânica Branca",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",quantidade:"3 Unidades", precoOriginal:"R$ 480,00", preco:"R$ 310,00",  foto:"assets/produtos/prod27black.jpeg"},
+ {nome:"Escova orgânica Branca",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",quantidade:"3 Unidades", precoOriginal:"R$ 480,00", preco:"R$ 310,00",  foto:"assets/produtos/prod27black.jpg"},
  {nome:"Kit Escova Orgânica Matizada",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",precoOriginal:"R$ 310,00", preco:"R$ 230,00", foto:"assets/produtos/prod29black.jpeg"},
- {nome:"Escova Orgânica Matizada",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 260,00",  foto:"assets/produtos/prod2black.jpeg"},
+ {nome:"Escova Orgânica Matizada",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 260,00",  foto:"assets/produtos/prod2black.jpg"},
  {nome:"Kit Escova Liss perfect Hair",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.",  precoOriginal:"R$ 310,00", preco:"R$ 230,00" ,foto:"assets/produtos/prod28black.jpeg"},
- {nome:"Escova Liss perfect Hair",    desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 300,00", foto:"assets/produtos/prod8black.jpeg"},
+ {nome:"Escova Liss perfect Hair",    desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026.", quantidade:"3 unidades", precoOriginal:"R$ 480,00", preco:"R$ 300,00", foto:"assets/produtos/prod8black.jpg"},
  {nome:"Kit Reconstrutor Acid",     desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",          precoOriginal:"R$ 170,00", preco:"R$ 140,00", foto:"assets/produtos/prod1black.jpeg"},
  {nome:"Kit Acid + Leave 1L",         desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026", precoOriginal:"R$ 290,00", preco:"R$ 199,00", foto:"assets/produtos/prod20black.jpg"},
  {nome:"Kit S.O.S Cauterização",          desc:"Promoção válida para pagamento pix,dinheiro ou cartão. 17/11/2026 até 20/11/2026",                  precoOriginal:"R$ 310,00", preco:"R$ 229,00",  foto:"assets/produtos/prod4black.jpeg"},
@@ -60,7 +60,7 @@ const redesSociais=`<div class="texto redes"><h2>Nos siga nas redes sociais</h2>
   <span class="rede-nome"><small>YouTube</small><strong>7 Bios</strong></span><span class="rede-seta" aria-hidden="true">↗</span>
  </a>
  </div></div>`;
-const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp ou Instagram<br>e receba no local indicado por você<br>não cobramos taxa de entrega</p><a href="${WHATSAPP}" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>`;
+const contato=`<div class="texto"><h2>Fale com a gente</h2><p>Faça seu pedido pelo WhatsApp ou Instagram<br>e receba no local indicado por você<br>não cobramos taxa de entrega</p></div>`;
 const contracapa=`<div class="texto"><img src="assets/logo.png" alt="7bios Beauty"><p>Obrigada pela visita.</p></div>`;
 
 const folhas=[[capa,boasVindas]];
